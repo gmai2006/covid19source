@@ -57,7 +57,7 @@ Wisconsin
 West Virginia
 Wyoming`;
 
-let defaultChart = `./predicted_confirmed_growth_rate.png`;
+// let defaultChart = `./predicted_confirmed_growth_rate.png`;
 const states = stateNames.split(`\n`);
 console.log(states);
 const update = (event) => {
@@ -65,7 +65,7 @@ const update = (event) => {
 }
 
 function Growth() {
-  const [image, setImage] = useState('./predicted_confirmed_growth_rate.png');
+  const [image, setImage] = useState('./Arkansas_confirm_predicted_growth_rate.png');
   console.log(image);
   return (
     <div className="animated fadeIn">
@@ -90,18 +90,21 @@ function Growth() {
                 name="select"
                 type="select"
                 onClick={
-                  event => setImage(event.target.value)
+                  event => {
+                    console.log(event.target.value);
+                    setImage(`./${encodeURIComponent(event.target.value)}_confirm_predicted_growth_rate.png`);
+                  }
               }
               >
                 {states.map((state) => (
                   <option key={state}>
-                    {state}_confirm_predicted_growth_rate.png
+                    {state}
                   </option>
                 ))}
                 
               </Input>
             </FormGroup>
-              <img src={ require(`./predicted_confirmed_growth_rate.png`) } />  
+              <img src={ require(`${image}`) } />  
             </CardBody>
           </Card>
           
