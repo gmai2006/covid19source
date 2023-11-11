@@ -1,14 +1,6 @@
 // https://www.smashingmagazine.com/2020/02/javascript-maps-react-leaflet/
 import React, { useState} from 'react';
-import { Map, TileLayer, GeoJSON ,
-  // Circle,
-  // FeatureGroup,
-  // LayerGroup,
-  LayersControl,
-  // Marker,
-  // Popup,
-  // Rectangle
- } from 'react-leaflet';
+import { Map, TileLayer, GeoJSON , LayersControl} from 'react-leaflet';
 
 import dataworld from './covid-world.json';
 import dataus from './covid-us.json';
@@ -25,24 +17,17 @@ const initState = {
   zoom: 2,
 }
 
-// const rectangle = [
-//   [51.49, -0.08],
-//   [51.5, -0.06],
-// ]
-
 const { BaseLayer } = LayersControl
 
-// const center = [51.505, -0.09]
-
-function LeafletChart() {
+const LeafletChart = () => {
   const [state, setState] = useState(initState);
 
-  function onEachFeature(feature, layer) {
+  const onEachFeature = (feature, layer) => {
     const popupContent = `<Popup><p><pre>${feature.properties.note}</pre></Popup>`
     layer.bindPopup(popupContent)
   }
 
-  function pointToLayer(feature, latlng) {
+  const pointToLayer = (feature, latlng) => {
     return L.circleMarker(latlng, {
       radius: feature.properties.radius,
       fillColor: feature.properties.color,
@@ -112,39 +97,6 @@ function LeafletChart() {
                 pointToLayer= { pointToLayer }
               />
           </BaseLayer>
-          {/* <Overlay name="Marker with popup">
-            <Marker position={center}>
-              <Popup>
-                A pretty CSS3 popup. <br /> Easily customizable.
-              </Popup>
-            </Marker>
-          </Overlay>
-          <Overlay checked name="Layer group with circles">
-            <LayerGroup>
-              <Circle center={center} fillColor="blue" radius={200} />
-              <Circle
-                center={center}
-                fillColor="red"
-                radius={100}
-                stroke={false}
-              />
-              <LayerGroup>
-                <Circle
-                  center={[51.51, -0.08]}
-                  color="green"
-                  fillColor="green"
-                  radius={100}
-                />
-              </LayerGroup>
-            </LayerGroup>
-          </Overlay>
-          <Overlay name="Feature group">
-            <FeatureGroup color="purple">
-              <Popup>Popup in FeatureGroup</Popup>
-              <Circle center={[51.51, -0.06]} radius={200} />
-              <Rectangle bounds={rectangle} />
-            </FeatureGroup>
-          </Overlay> */}
         </LayersControl>
     </Map>
   )

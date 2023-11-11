@@ -10,6 +10,11 @@ export default {
       url: '/growth',
       icon: 'icon-puzzle',
     },
+    {
+      name: 'Read GeoJson',
+      url: '/geojson',
+      icon: 'icon-puzzle',
+    },
    
   ],
 };

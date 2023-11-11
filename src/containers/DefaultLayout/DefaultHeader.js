@@ -12,10 +12,9 @@ const propTypes = {
 };
 
 
-
 const defaultProps = {};
 
-function DefaultHeader(props) {
+const DefaultHeader = (props) => {
   const now = new Date().toString();
     // eslint-disable-next-line
     const { children, ...attributes } = props;

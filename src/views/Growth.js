@@ -5,7 +5,6 @@ import {Col, Row } from 'reactstrap';
 const stateNames = `Alaska
 Alabama
 Arkansas
-American Samoa
 Arizona
 California
 Colorado
@@ -60,9 +59,6 @@ Wyoming`;
 // let defaultChart = `./predicted_confirmed_growth_rate.png`;
 const states = stateNames.split(`\n`);
 console.log(states);
-const update = (event) => {
-  console.log(event);
-}
 
 function Growth() {
   const [image, setImage] = useState('./Arkansas_confirm_predicted_growth_rate.png');
@@ -91,8 +87,7 @@ function Growth() {
                 type="select"
                 onClick={
                   event => {
-                    console.log(event.target.value);
-                    setImage(`./${encodeURIComponent(event.target.value)}_confirm_predicted_growth_rate.png`);
+                    setImage(`./${event.target.value}_confirm_predicted_growth_rate.png`);
                   }
               }
               >
