@@ -1,0 +1,10 @@
+OUTPUT_DIR = '/backup/test_data/'
+CONFIRM_FILE_NAME = 'time_series_covid19_confirmed_global.csv'
+DEATH_FILE_NAME = 'time_series_covid19_deaths_global.csv'
+RECOVERED_FILE_NAME = 'time_series_covid19_recovered_global.csv'
+US_CONFIRM_FILE_NAME = 'time_series_covid19_confirmed_US.csv'
+US_DEATH_FILE_NAME = 'time_series_covid19_deaths_US.csv'
+US_RECOVERED_FILE_NAME = 'time_series_covid19_recovered_US.csv'
+DAILY_FILE_NAME = 'daily.csv'
+DAILY_URL = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/'
+# https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-26-2020.csv
